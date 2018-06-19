@@ -1,0 +1,60 @@
+<html>
+
+<head>
+  <title>ICE @ LinkedIn</title>
+  <style>
+    body, table {
+      font: 14px sans-serif;
+    }
+    #container {
+      max-width: 1100px;
+        margin: auto;
+    }
+    table {
+      border-collapse: collapse;
+        width: 100%;
+    }
+    th {
+      text-align: left;
+    }
+    td {
+      padding: 3px;
+      border: 1px solid #ccc;
+    }
+    img {
+      max-width: 50px;
+      display: block;
+    }
+    a {
+      color: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+  <h1>People on LinkedIn who work for ICE</h1>
+  <p>collected by <a href="http://lav.io">Sam Lavigne</a></p>
+  <p><a href="https://raw.githubusercontent.com/antiboredom/ice-linkedin/master/ice.csv">Download as a CSV</a>, or explore <a href="https://github.com/antiboredom/ice-linkedin">the more detailed dataset here</a>.</p>
+  <table>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Location</th>
+    </tr>
+    {% for p in people %}
+    <tr>
+      <td>
+        {% if p.img %}
+        <a href="{{p.linkedin}}"><img src="{{p.img}}"></a> {% endif %}
+      </td>
+      <td><a href="{{p.linkedin}}">{{p.name}}</a></td>
+      <td>{{p.title}}</td>
+      <td>{{p.location}}</td>
+      </tr>
+      {% endfor %}
+    </table>
+    </div>
+  </body>
+</html>
